@@ -17,13 +17,13 @@
 
 #### Structure
 
-```aidl
+```
 course
-   ├── CourseApplication.java [Main App]
-   ├── CourseController.java [Request Handler]
-   ├── CourseRepository.java [Repository]
-   ├── Course.java [Entity]
-   └── LoadDatabase.java [sample data]
+ ├── CourseApplication.java [Main App]
+ ├── CourseController.java [Request Handler]
+ ├── CourseRepository.java [Repository]
+ ├── Course.java [Entity]
+ └── LoadDatabase.java [sample data]
 ```
 #### Instruction
 
