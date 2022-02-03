@@ -1,6 +1,17 @@
-# Spring Boot
+# Introduction
+
+- Java platform:
+  - Standard Edition(SE) - [https://docs.oracle.com/en/java/javase/17/docs/api/index.html](https://docs.oracle.com/en/java/javase/17/docs/api/index.html)
+  - Enterprise Edition(EE) - [https://docs.oracle.com/javaee/7/api/toc.htm](https://docs.oracle.com/javaee/7/api/toc.htm)
+  - Micro Edition(ME)
+- JDK - JRE - JVM [https://www.guru99.com/difference-between-jdk-jre-jvm.html](https://www.guru99.com/difference-between-jdk-jre-jvm.html)
+- POJO (normal class without extend, implement or annotation) vs JavaBean(class with private property and use setter/getter/is for access to property)
+- Spring main feature: DI & IoC - (That makes the application to be the loose coupling application.)
+- Spring Boot main feature: Auto configuration
+# Spring Boot (REST API)
 
 - CRUD
+- Error Handler [https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc](https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc)
 - Unit Test
 - Validation
 - Security(Authentication, Authorization, CORS)
@@ -36,7 +47,8 @@ This annotation will create `ApplicationContext` and includes 3 annotations insi
    - `@ComponentScan` - load all class and other component that have annotation 
    
     Add in the main method to launch the spring ```SpringApplication.run(StarterApplication.class, args);```
-2. Create REST Controller class with `@RestController` (Spring Web) to handle request
+2. Create REST Controller class with `@RestController` (Spring Web) to handle request. The part that convert Json to object or 
+object to Json is handled by the Spring Web already, in controller we only work with java object only.
    - To define prefix, use `@RequestMapping("/api")` on class
    - To handle different method, use `@GetMapping("/courses")`, `@PostMapping("/courses/{id}")`, `@PutMapping("/courses/{id}")`, `@DeleteMapping("/courses/{id}")` on method
    - To get param, use `@RequestParam(value = "id", defaultValue = 1) Long id`

@@ -1,4 +1,4 @@
-package course;
+package com.example.course;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
