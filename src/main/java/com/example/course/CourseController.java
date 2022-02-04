@@ -1,9 +1,10 @@
 package com.example.course;
 
+import com.example.course.exception.CourseDuplicationExceptionResponse;
+import com.example.course.exception.CourseNotFoundExceptionResponse;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -21,12 +22,18 @@ public class CourseController {
     }
 
     @GetMapping("/courses/{id}")
-    Optional<Course> getById(@PathVariable Long id) {
-        return repository.findById(id);
+    Course getById(@PathVariable Long id) {
+        return repository.findById(id).orElseThrow(() -> new CourseNotFoundExceptionResponse(id));
     }
 
     @PostMapping("/courses")
-    Course create(@RequestBody Course course) {
+    @ResponseStatus(HttpStatus.CREATED)
+    Course create( @RequestBody Course course) {
+
+        List<Course> courses = repository.findByTitle(course.getTitle());
+
+        if (courses.size() > 0) throw new CourseDuplicationExceptionResponse(course);
+
         return this.repository.save(course);
     }
 
