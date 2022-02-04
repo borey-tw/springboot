@@ -112,9 +112,8 @@ reference [https://howtodoinjava.com/spring-boot2/datasource-configuration/](htt
 
 ## Error Handler
 
-Use a global error handler - all throw errors in application (not only the controller
-- [Ref](https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc#:~:text=Using%20%40ControllerAdvice%20Classes,as%20an%20annotation%20driven%20interceptor.))
-will be handled in one place.
+Use a global error handler - all throw errors in application (Not only the controller)
+will be handled in one place ([Ref](https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc#:~:text=Using%20%40ControllerAdvice%20Classes,as%20an%20annotation%20driven%20interceptor.)).
 
 Need to use 3 to things:
 
