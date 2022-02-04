@@ -7,7 +7,7 @@ public class ExceptionResponseBody {
     private String message;
 
     @NotEmpty
-    private Map<String, String> error;
+    private Map<String, String> errorDetail;
 
     ExceptionResponseBody(String message) {
         this.message = message;
@@ -15,14 +15,14 @@ public class ExceptionResponseBody {
 
     ExceptionResponseBody(String message, Map<String, String> error) {
         this.message = message;
-        this.error = error;
+        this.errorDetail = error;
     }
 
     public String getMessage() {
         return this.message;
     }
 
-    public Map<String, String> getError() {
-        return this.error;
+    public Map<String, String> getErrorDetail() {
+        return this.errorDetail;
     }
 }
