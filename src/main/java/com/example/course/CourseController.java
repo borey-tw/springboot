@@ -4,6 +4,8 @@ import com.example.course.exception.CourseDuplicationExceptionResponse;
 import com.example.course.exception.CourseNotFoundExceptionResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -28,7 +30,7 @@ public class CourseController {
 
     @PostMapping("/courses")
     @ResponseStatus(HttpStatus.CREATED)
-    Course create( @RequestBody Course course) {
+    Course create(@Valid @RequestBody Course course) {
 
         List<Course> courses = repository.findByTitle(course.getTitle());
 

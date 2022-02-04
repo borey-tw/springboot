@@ -4,13 +4,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Objects;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Course {
 
     private @Id @GeneratedValue(strategy= GenerationType.IDENTITY) Long id;
+
+    @NotEmpty
+    @Size(min = 2, max = 125)
     private String title;
+
+    @NotEmpty
+    @Size(min = 2, max = 500)
     private String description;
 
     Course() {}

@@ -150,6 +150,34 @@ Reference
 
 ## Validation
 
+Dependency for validation
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-validation</artifactId>
+</dependency>
+```
+
+There are 3 steppes to do:
+1. Define what we want to validate - by adding constrain annotation in model e.g.
+```
+import javax.validation.constraints.Email;
+
+@Email(message = "Custome message")
+private String email;
+```
+2. Chose where we want to validate, by using `@Valid` with the argument of the method
+```
+import javax.validation.Valid;
+
+@PostMapping("/courses")
+Course create(@Valid @RequestBody Course course) {} 
+```
+3. Have the exception handler - use the controller advice with extend of `ResponseEntityExceptionHandler`,
+then override the method `handleMethodArgumentNotValid`
+
 Reference
 
+- [https://www.javaguides.net/2021/03/validation-in-spring-boot-rest-api-with-hibernate-validator.html](https://www.javaguides.net/2021/03/validation-in-spring-boot-rest-api-with-hibernate-validator.html)
 - [https://reflectoring.io/bean-validation-with-spring-boot/](https://reflectoring.io/bean-validation-with-spring-boot/)
