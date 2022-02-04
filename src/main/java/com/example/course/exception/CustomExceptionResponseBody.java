@@ -3,17 +3,17 @@ package com.example.course.exception;
 import javax.validation.constraints.NotEmpty;
 import java.util.Map;
 
-public class ExceptionResponseBody {
+public class CustomExceptionResponseBody {
     private String message;
 
     @NotEmpty
     private Map<String, String> errorDetail;
 
-    ExceptionResponseBody(String message) {
+    CustomExceptionResponseBody(String message) {
         this.message = message;
     }
 
-    ExceptionResponseBody(String message, Map<String, String> error) {
+    CustomExceptionResponseBody(String message, Map<String, String> error) {
         this.message = message;
         this.errorDetail = error;
     }

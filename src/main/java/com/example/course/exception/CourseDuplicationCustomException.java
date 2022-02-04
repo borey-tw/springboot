@@ -3,9 +3,9 @@ package com.example.course.exception;
 import com.example.course.Course;
 import org.springframework.http.HttpStatus;
 
-public class CourseDuplicationException extends ExceptionResponseEntity {
+public class CourseDuplicationCustomException extends CustomException {
 
-    public CourseDuplicationException(Course course) {
+    public CourseDuplicationCustomException(Course course) {
         super(course.getTitle() + " is already exist.", HttpStatus.BAD_REQUEST);
     }
 }

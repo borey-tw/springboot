@@ -2,9 +2,9 @@ package com.example.course.exception;
 
 import org.springframework.http.HttpStatus;
 
-public class CourseNotFoundException extends ExceptionResponseEntity {
+public class CourseNotFoundCustomException extends CustomException {
 
-    public CourseNotFoundException(Long id) {
+    public CourseNotFoundCustomException(Long id) {
         super("Could not find course " + id, HttpStatus.NOT_FOUND);
     }
 }

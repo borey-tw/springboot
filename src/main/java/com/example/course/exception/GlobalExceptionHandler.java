@@ -24,8 +24,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 //    }
 
     // Use return ResponseEntity
-    @ExceptionHandler(ExceptionResponseEntity.class)
-    protected ResponseEntity<ExceptionResponseBody> handleCustomException(ExceptionResponseEntity ex) {
+    @ExceptionHandler(CustomException.class)
+    protected ResponseEntity<CustomExceptionResponseBody> handleCustomException(CustomException ex) {
         return new ResponseEntity<>(ex.getBody(), ex.getHttpStatus());
     }
 
@@ -41,7 +41,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             errors.put(fieldName, message);
         });
 
-        ExceptionResponseBody body = new ExceptionResponseBody("Validation failed", errors);
+        CustomExceptionResponseBody body = new CustomExceptionResponseBody("Validation failed", errors);
 
         return new ResponseEntity<Object>(body, headers, HttpStatus.BAD_REQUEST);
     }
