@@ -13,19 +13,20 @@ import java.util.List;
 public class CourseController {
 
     private final CourseRepository repository;
+    private final CourseService service;
 
-    CourseController(CourseRepository repository) {
-        this.repository = repository;
+    CourseController(CourseRepository repository, CourseService service) {
+        this.repository = repository; this.service = service;
     }
 
     @GetMapping("/courses")
     List<Course> all() {
-        return repository.findAll();
+        return service.findAll();
     }
 
     @GetMapping("/courses/{id}")
     Course getById(@PathVariable Long id) {
-        return repository.findById(id).orElseThrow(() -> new CourseNotFoundException(id));
+        return service.findById(id);
     }
 
     @PostMapping("/courses")

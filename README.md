@@ -12,6 +12,14 @@
   setter/getter/is for access to property)
 - Spring main feature: DI & IoC - (That makes the application to be the loose coupling application.)
 - Spring Boot main feature: Auto configuration
+- What is `RuntimeException` is unchecked exception (no error in compile in case we don't handle the throw exception when call method that throw this exception type).
+If throw type of `Exception` we need to handle (use try catch) otherwise, there is error in compile, because of missing
+handling.
+- `@Component`, `@Repository` (catch persistence-specify exception ant re-throw as Spring unchecked exception), `@Service` [Ref](https://www.baeldung.com/spring-component-repository-service)
+
+# Other topics
+
+- [Java](/docs/java.md)
 
 # Spring Boot (REST API)
 
@@ -180,3 +188,29 @@ Reference
 
 - [https://www.javaguides.net/2021/03/validation-in-spring-boot-rest-api-with-hibernate-validator.html](https://www.javaguides.net/2021/03/validation-in-spring-boot-rest-api-with-hibernate-validator.html)
 - [https://reflectoring.io/bean-validation-with-spring-boot/](https://reflectoring.io/bean-validation-with-spring-boot/)
+
+## Testing
+
+Dependency for testing [Ref](https://www.baeldung.com/spring-boot-testing). Spring-boot-starter-test ([Ref](https://docs.spring.io/spring-boot/docs/1.5.7.RELEASE/reference/html/boot-features-testing.html#boot-features-test-scope-dependencies)) already provide: `Spring Test`, `JUnit`, `Mockito`, `AssertJ`, `Hamcrest`, `JSONassert` and `JsonPath`.
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+    <scope>test</scope>
+</dependency>
+```
+
+- `@SpringBootTest` for integration test (will create the whole application context for test environment)
+- `@DataJpaTest` 
+- `@TestPropertySource` will override **application.properties**
+- `@TestConfiguration`
+- `@MockBean`
+
+### Unit Test
+
+[Ref](https://docs.spring.io/spring-batch/docs/current/reference/html/testing.html#mockingDomainObjects)
