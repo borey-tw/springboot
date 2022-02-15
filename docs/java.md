@@ -20,7 +20,10 @@
     dataType arr[];
   
     // Instantiation
-    arr = new dataType[size];  
+    arr = new dataType[size];
+  
+  // Assign value to element
+  Course courses = { new Course("Course 1"), new Course("Course 2") };
   ```
 - array variable is also **java object**, so to create new array we must use keyword `new` [Ref](http://underpop.online.fr/j/java/help/declaring-and-creating-arrays-arrays.html.gz)
 - other class like `Arrays`, `String`, `Integer`, and so on are used for interact each type easily
@@ -48,6 +51,13 @@ List<Course> courses = new ArrayList<Course>(){{
     add(new Course("course 2"));
     add(new Course("course 3"));
 }};
+
+// or use asList() in Arrays class
+List<Course> courses2 = Arrays.asList(
+        new Course("course 1"),
+        new Course("course 2"),
+        new Course("course 3")
+);
 ```
 
 **References**
